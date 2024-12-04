@@ -1,0 +1,73 @@
+/* Fel lichtgevende rode achtergrond */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff0000;
+    background-image: radial-gradient(circle, #ff4d4d, #ff0000);
+    overflow: hidden;
+}
+
+/* Knop container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Sketchy button stijl */
+.sketchy-button {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 2rem;
+    color: #ffffff;
+    background-color: transparent;
+    border: 4px solid #ffffff;
+    border-radius: 8px;
+    padding: 20px 40px;
+    position: relative;
+    cursor: pointer;
+    animation: pulse 2s infinite ease-in-out;
+    box-shadow: 0 0 20px #ffffff;
+    text-shadow: 0 0 10px #ffffff;
+    outline: none;
+    transition: transform 0.2s;
+}
+
+.sketchy-button:hover {
+    transform: scale(1.1);
+}
+
+/* Pulse animatie */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Vliegende afbeelding */
+.flying-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    max-height: 100vh; /* Maximale hoogte mag niet groter zijn dan de paginahoogte */
+    max-width: 100%;   /* Zorg ervoor dat de afbeelding niet breder wordt dan de breedte */
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+/* Actief vliegende afbeelding */
+.flying-image.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    z-index: 10;
+}
